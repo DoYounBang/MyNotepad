@@ -1,2 +1,1 @@
-# MyNotepad
-spartacodingclub my notepad
+# Spartacodingclub
