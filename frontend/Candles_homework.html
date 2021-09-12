@@ -47,8 +47,33 @@
             margin-bottom: 20px;
         }
 
+        .rate {
+            color: blue;
+        }
+
 
     </style>
+    <script>
+        $(document).ready(function () {
+            get_rate();
+        });
+
+        function get_rate() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let now_rate = response['rate'];
+                    $('#now_rate').text(now_rate);
+                }
+            })
+        }
+
+        function order(){
+            alert('주문이 완료되었습니다.')
+        }
+    </script>
 </head>
 <body>
 <div class="wrap">
@@ -57,6 +82,7 @@
     <div class="item-desc">
         <h1> 양초를 팝니다<span class="price">가격: 3,000원/개</span></h1>
         <h7> 이 양초는 사실 특별한 힘을 지니고 있어요!</h7>
+        <p class="rate">달러-원 환율: <span id="now_rate">  </span></p>
         <div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
